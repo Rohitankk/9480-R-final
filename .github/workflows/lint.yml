@@ -24,7 +24,7 @@ jobs:
 
       - name: Run linting
         run: |
-          lint_result=$(R -e "result <- lintr::lint_dir('9480-R-final/scripts/RScriptFunctions.R'); cat(result);")
+          lint_result=$(R -e "result <- lintr::lint('9480-R-final/scripts/RScriptFunctions.R'); cat(result);")
           echo "$lint_result"
 
 
