@@ -1,1 +1,0 @@
-lint('camel_case', 'snake_case', 'TrailingWhitespace', LineLength = 120)
