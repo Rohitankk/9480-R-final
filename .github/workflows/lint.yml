@@ -1,30 +1,18 @@
-name: Lint R Code
+name: Lint R code
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   lint:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up R
-        uses: r-lib/actions/setup-r@v2
-        with:
-          r-version: 4.1
-
+      - uses: actions/checkout@v3
+      - uses: r-lib/actions/setup-r@v2
       - name: Install dependencies
         run: |
-          R -e "install.packages('lintr')"
-
-      - name: Run linting
+          Rscript -e "install.packages(c('lintr'))"
+      - name: Lint R code
         run: |
-          lint_result=$(R -e "result <- lintr::lint('9480-R-final/scripts/RScriptFunctions.R'); cat(result);")
-          echo "$lint_result"
-
-
+          Rscript -e "lintr::lint_all()"
