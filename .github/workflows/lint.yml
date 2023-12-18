@@ -24,4 +24,6 @@ jobs:
 
       - name: Run linting
         run: |
-          R -e "lintr::lint_dir('9480-R-final/scripts')"
+          lint_result=$(R -e "result <- lintr::lint_dir('9480-R-final/scripts'); cat(result); if (length(result) > 0) q(status = 1)")
+          echo "$lint_result"
+
