@@ -198,13 +198,8 @@ while (TRUE)
     cat("Invalid Choice! Make sure to choose an option from those provided.")
     
   }
-  
-  lint_result <- lint_file("RScriptFunctions.R", output_format = "none")
-  if (length(lint_result) > 0) {
-    cat("Linting issues found:\n")
-    print(lint_result)
-  }
 }    # End of While Loop;
 }
 
-executeProgram()
+lint_script <- lint("RScriptFunctions.R")
+print(lint_script)
