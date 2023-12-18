@@ -24,4 +24,4 @@ jobs:
 
       - name: Run linting
         run: |
-          R -e "lintr::lint_file('RScriptFunctions.R')"
+          R -e "lintr::lint_dir('9480-R-final/scripts')"
